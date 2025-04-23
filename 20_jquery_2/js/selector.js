@@ -25,6 +25,7 @@ $(() => {
     console.log(title)
 
     // TODO: html() 設定
+    titleElement.html('日本の都市')
 
     // TODO: .city に addClass()
     // bg-gray-300
