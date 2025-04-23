@@ -29,6 +29,7 @@ $(() => {
 
     // TODO: .city に addClass()
     // bg-gray-300
+    cityElements.addClass('bg-gray-300');
 
     // TODO: .city に removeClass()
     // bg-gray-300
