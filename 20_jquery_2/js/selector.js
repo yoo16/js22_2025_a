@@ -32,18 +32,14 @@ $(() => {
     cityElements.addClass('bg-gray-300');
 
     // TODO: .city に removeClass()
+
+    // TODO: eq(): .city に指定インデックスで取得(jQueryオブジェクト)q
+    // TODO: eq(): .city の２番目を取得し、class=bg-red-500 を追加
     // bg-gray-300
     cityElements.eq(1).addClass('bg-red-500 text-white')
 
-    // TODO: get(): .city に指定インデックスで取得(バニラJS)
-
-    // TODO: eq(): .city に指定インデックスで取得(jQueryオブジェクト)q
-
-    // TODO: eq(): .city の最初を取得し、class=bg-red-500 を追加
-
-    // TODO: eq(): .city の最初を取得し、class=bg-red-500 を追加
-
     // TODO: first(): .city の最初を取得し、class=bg-red-500 を追加
+    cityElements.first().addClass('bg-sky-500 text-white')
 
     // TODO: .city の最後を取得し、class=bg-red-500 を追加
 
