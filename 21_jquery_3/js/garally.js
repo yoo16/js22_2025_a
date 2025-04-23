@@ -11,7 +11,6 @@ $(function () {
     $('#resize-width').on('click', () => {
         if (!ensure()) return;
         // TODO: 選択の画像を find() で検索し、幅（width) を変更
-        updateInfo($current.find('img'));   // 最新サイズを反映
     });
 
     // リセット
