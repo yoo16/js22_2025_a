@@ -33,6 +33,7 @@ $(() => {
 
     // TODO: .city に removeClass()
     // bg-gray-300
+    cityElements.eq(1).addClass('bg-red-500')
 
     // TODO: get(): .city に指定インデックスで取得(バニラJS)
 
