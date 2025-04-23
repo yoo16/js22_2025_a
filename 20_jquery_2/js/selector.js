@@ -51,6 +51,7 @@ $(() => {
 
     // TODO: not(): 指定した条件に一致しない要素を選択
     // 奇数以外（偶数）の要素に class=bg-blue-300 を追加 
+    $('.city').not(':odd').addClass('bg-green-500 text-white')
 
     // TODO: find(): 子孫要素を取得
 
