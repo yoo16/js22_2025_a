@@ -1,6 +1,6 @@
 $(() => {
     // TODO: id=title
-    var titleElement
+    var titleElement = $('#title')
     console.log(titleElement)
 
     // TODO: class=city
