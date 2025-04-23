@@ -42,6 +42,7 @@ $(() => {
     cityElements.first().addClass('bg-sky-500 text-white')
 
     // TODO: .city の最後を取得し、class=bg-red-500 を追加
+    cityElements.last().addClass('bg-indigo-500 text-white')
 
     // TODO: .city をすべて取得し、class=bg-red-300 を削除
 
