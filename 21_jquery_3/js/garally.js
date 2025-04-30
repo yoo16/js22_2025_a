@@ -11,6 +11,7 @@ $(function () {
     $('#resize-width').on('click', () => {
         if (!ensure()) return;
         // TODO: 選択の画像を find() で検索し、幅（width) を変更
+        updateInfo($current.find('img'));   // 最新サイズを反映
     });
 
     // リセット
@@ -38,7 +39,7 @@ $(function () {
     function createGallery(number) {
         const $wrap = $('#gallery');
         const tpl = $('#img-item').html();
-        const nums = [...Array(number).keys()].map(i => i + 1);
+        const nums = [...Array(number).keys()].map(i => i + 1); // 1..number
 
         $.each(nums, (_, i) => {
             const $el = $(tpl);
@@ -52,8 +53,8 @@ $(function () {
                 'data-index': i
             };
 
-            // TODO: img タグに propsを設定
-            $el.find('img');
+            // TODO: img タグを取得し、attr() で propsを設定
+            $el.find('img')
 
             $el.find('figcaption').text(`character_${i}`);
             $wrap.append($el);
