@@ -33,7 +33,8 @@ $('#input-text').on({
 // change イベント
 $('#character-select').on('change', function () {
     // TODO: $(this) を使ってプルダウンで選択された value を取得
-    const id = 0;
+    // option の value を取得
+    const id = $(this).val();
     updateImage(id);
 });
 
@@ -48,7 +49,7 @@ $('#character-list li').on('click', function () {
 function updateImage(id) {
     const imagePath = `images/character_${id}.png`;
     // TODO: id=character-image の src に imagePath を設定
-    $('#character-image');
+    $('#character-image').attr('src', imagePath);
 }
 
 // mouseイベントハンドラー
