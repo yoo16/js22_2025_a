@@ -12,6 +12,7 @@ $(function () {
         li.text(value)
         // console.log(li)
         //TODO: addClass() で defaultClass を追加
+        li.addClass(defaultClass)
         return li;
     }
 
@@ -63,6 +64,7 @@ $(function () {
     $('#btn-remove').on('click', function () {
         if (selected.length) {
             // TODO: 選択中の要素を削除(remove)
+            selected.remove();
 
             // 選択解除
             selected = $();
@@ -72,7 +74,7 @@ $(function () {
     });
 
     $('#item-list').on('click', 'li', function () {
-        // $('#item-list li').removeClass(selectedClass).addClass(unselectedClass);
+        $('#item-list li').removeClass(selectedClass).addClass(unselectedClass);
         $(this).addClass(selectedClass).removeClass(unselectedClass);
         // TODO: 選択
         // 最後にクリックされた li が記憶
