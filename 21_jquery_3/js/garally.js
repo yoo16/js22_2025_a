@@ -77,7 +77,7 @@ $(function () {
         const w = 0;
         // TODO: 高さを取得
         const h = 0;
-        // TODO: 最初に見つかった <figure> を取得し、ドキュメント左上 (0, 0) からの座標 offset() を計算
+        // TODO: imgタグから最初に見つかった <figure> を closest() で取得し、ドキュメント左上 (0, 0) からの座標 offset() を計算
         const { top, left } = {};
 
         $('#info-width').text(w);
