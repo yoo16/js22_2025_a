@@ -44,7 +44,8 @@ $(() => {
     // TODO: .city の最後を取得し、class=bg-red-500 を追加
     cityElements.last().addClass('bg-indigo-500 text-white')
 
-    // TODO: .city をすべて取得し、class=bg-red-300 を削除
+    // TODO: .city をすべて取得し、class=bg-red-500 を削除
+    // cityElements.removeClass('bg-red-500')
 
     // TODO: filter(): 指定した条件に一致した要素を選択
     // .city をすべて取得し、奇数に class=bg-gray-200 を追加
