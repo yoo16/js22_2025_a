@@ -5,7 +5,7 @@
 
 // TODO: クリックイベント
 $("#click-button").on("click", function () {
-    // TODO: id=input-text のデータを取得
+    // TODO: id=input-text のデータを取得(value)
     var userName = $('#input-text').val();
     if (userName) {
         var message = userName + "さん、ようこそ！";
