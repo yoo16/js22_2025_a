@@ -8,7 +8,9 @@ $(function () {
     function newItem() {
         const value = getInputValue();
         //TODO: liタグを作成し、テキスト表示
-        const li = $();
+        const li = $("<li>");
+        li.text(value)
+        // console.log(li)
         //TODO: addClass() で defaultClass を追加
         return li;
     }
@@ -19,22 +21,26 @@ $(function () {
 
     $('#btn-append').on('click', function () {
         const element = newItem();
-        // TODO: 親要素(id=select-list)の最後に追加(append)
+        // TODO: 親要素(id=item-list)の最後に追加(append)
+        $('#item-list').append(element);
 
         $('#input-text').val('');
     });
 
     $('#btn-prepend').on('click', function () {
         const element = newItem();
-        // TODO: 親要素(id=select-list)の最初に追加(prepend)
+        // TODO: 親要素(id=item-list)の最初に追加(prepend)
+        $('#item-list').prepend(element);
 
         // TODO: テキストボックス(id=input-text)を空にする
+        $('#input-text').val('');
     });
 
     $('#btn-before').on('click', function () {
         if (selected.length) {
             const element = newItem();
             // TODO: 選択中の要素の前に追加(before)
+            selected.before(element);
 
             $('#input-text').val('');
         } else {
@@ -46,6 +52,7 @@ $(function () {
         if (selected.length) {
             const element = newItem();
             // TODO: 選択中の要素の後に追加(after)
+            selected.after(element);
 
             $('#input-text').val('');
         } else {
@@ -68,5 +75,7 @@ $(function () {
         // $('#item-list li').removeClass(selectedClass).addClass(unselectedClass);
         $(this).addClass(selectedClass).removeClass(unselectedClass);
         // TODO: 選択
+        // 最後にクリックされた li が記憶
+        selected = $(this)
     });
 });
