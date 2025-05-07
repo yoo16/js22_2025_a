@@ -26,6 +26,7 @@ $('#input-text').on({
     },
     blur: function () {
         // TODO: フォーカスがはずれた時に class=bg-blue-100 を削除
+        $(this).removeClass('bg-blue-100')
     }
 });
 
