@@ -99,7 +99,7 @@ $(function () {
 
     /** 
      * 選択チェック 
-     */
+     */ｗ
     function ensure() {
         if (!$current.length) alert('まず画像をクリックして選択してください');
         return $current.length;
