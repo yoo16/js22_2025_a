@@ -11,6 +11,8 @@ $(function () {
     $('#resize-width').on('click', () => {
         if (!ensure()) return;
         // TODO: 選択の画像を find() で検索し、幅（width) を変更
+        $current.find('img').width(100);
+
         updateInfo($current.find('img'));   // 最新サイズを反映
     });
 
@@ -80,7 +82,7 @@ $(function () {
         // TODO: 高さを取得
         const h = $img.height();
         // TODO: imgタグから最初に見つかった <figure> を closest() で取得し、ドキュメント左上 (0, 0) からの座標 offset() を計算
-        const { top, left } = {};
+        const { top, left } = $img.closest('figure').offset();
 
         $('#info-width').text(w);
         $('#info-height').text(h);
