@@ -41,7 +41,7 @@ $('#character-select').on('change', function () {
 // click イベント
 $('#character-list li').on('click', function () {
     // TODO: $(this) を使って data-character を取得
-    const id = 0;
+    const id = $(this).data('character'); // ← 修正点
     updateImage(id);
 });
 
@@ -62,9 +62,14 @@ const mouseOutHandler = function (event) {
 }
 
 // mouseイベント
-$('#hoverBox')
-    // TODO: マウスオーバーで、mouseOverHandler を実行
-    // TODO: mouseOutHandler を実行
+$('#hoverBox').on(
+    {
+        "mouseover": mouseOverHandler,
+        "mouseout": mouseOutHandler,
+    }
+)
+// TODO: マウスオーバーで、mouseOverHandler を実行
+// TODO: mouseOutHandler を実行
 
 // mouseイベント削除
 $('#event-off-button').on('click', function () {
