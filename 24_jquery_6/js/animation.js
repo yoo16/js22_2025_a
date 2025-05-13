@@ -67,26 +67,18 @@ $(function () {
     })
 
     $("#animateBtn").on("click", function () {
-        box1.animate({ width: "300px", height: "50px", opacity: 0.1 }, 1000)
-            .animate({ width: "100px", height: "100px", opacity: 1 }, 1000)
+        // TODO: box1 を width=300px height=50px opacity: 0.1 でアニメーション
+        // TODO: box1 を width=100px height=100px opacity: 1 でアニメーション
+        box1.animate({ width: "0px", height: "0px", opacity: 1 }, 1000)
+            .animate({ width: "0px", height: "0px", opacity: 1 }, 1000)
 
-        box2.animate({ width: "0px", opacity: 0.1 }, 500)
-            .animate({ width: "200px", opacity: 1 }, 500)
-            .delay(1000)
-            .animate({ width: "100px", opacity: 1 }, 1000)
-    });
-
-    $("#queueBtn").on("click", function () {
-        const items = $('.item');
-        items.addClass('hidden');
-
-        const delayTime = 300;
-
-        items.each(function (i) {
-            $(this).delay(i * delayTime).queue(() => {
-                $(this).removeClass('hidden').dequeue();
-            });
-        });
+        // TODO: box2 を width=0px opacity: 0.1 でアニメーション
+        // TODO: box2 を width=200px opacity: 1 でアニメーション
+        // TODO: box2 を 1秒待機して width=100px opacity: 1 でアニメーション
+        box2.animate({ width: "0px", opacity: 1 }, 500)
+            .animate({ width: "0px", opacity: 1 }, 500)
+            .delay(0)
+            .animate({ width: "0px", opacity: 1 }, 1000)
     });
 
     $("#queueBtn").on("click", function () {
