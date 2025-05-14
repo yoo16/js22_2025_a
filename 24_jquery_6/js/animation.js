@@ -63,7 +63,7 @@ $(function () {
             if (count > 0) {
                 // console.log(element);
                 // TODO: アニメーションで左に揺らす
-                character_4.animate({ left: "-=" + distance }, delay)   
+                character_4.animate({ left: "-=" + distance }, delay)
                 // TODO: アニメーションで右に揺らす
                 character_4.animate({ left: "+=" + distance }, delay)
                 // TODO: コールバックで再帰的に shake() を呼び出す
@@ -103,13 +103,16 @@ $(function () {
         const items = $('.item');
         items.addClass('hidden');
 
-        const delayTime = 300;  
+        const delayTime = 300;
 
         // items 繰り返し(each)
         items.each(function (i) {
             // TODO: delay().queure() を実行
-            // TODO: コールバックで、class=hidden を削除
-            // TODO: dequeue()
+            $(this).delay(i * delayTime).queue(function () {
+                // TODO: コールバックで、class=hidden を削除
+                // TODO: dequeue()
+                $(this).removeClass('hidden').dequeue();
+            });
         });
     });
 
