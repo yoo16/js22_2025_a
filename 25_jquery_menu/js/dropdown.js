@@ -1,7 +1,7 @@
 $(function () {
     //TODO: class=menu の a リンクでアンカーを含むもの
     // .menu a[href^="#"]
-    const $menuLink = $('');
+    const $menuLink = $('.menu a[href^="#"]');
 
     // メニュー取得: class=menu
     const $navMenus = $(".menu");
@@ -34,11 +34,9 @@ $(function () {
         const anchor = this.getAttribute('href');
         if (anchor) {
             // TODO: アンカーのY座標取得: offset().top
-            const targetOffset = 0;
+            const targetOffset = $(anchor).offset().top;
             // TODO: アンカーにアニメーションでスクロール: scrollTop: targetOffset
-            $('html, body').stop().animate({
-
-            }, 500);
+            $('html, body').stop().animate({ scrollTop: targetOffset }, 500);
         }
     });
 });
