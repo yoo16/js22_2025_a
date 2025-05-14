@@ -63,10 +63,14 @@ $(function () {
             if (count > 0) {
                 // console.log(element);
                 // TODO: アニメーションで左に揺らす
+                character_4.animate({ left: "-=" + distance }, delay)   
                 // TODO: アニメーションで右に揺らす
+                character_4.animate({ left: "+=" + distance }, delay)
                 // TODO: コールバックで再帰的に shake() を呼び出す
+                shake(element, count - 1);
             } else {
                 // TODO: 最後に元の位置へ戻す
+                character_4.animate({ left: "0px" }, delay);
             }
         }
         shake(character_4, times);
@@ -99,7 +103,7 @@ $(function () {
         const items = $('.item');
         items.addClass('hidden');
 
-        const delayTime = 300;
+        const delayTime = 300;  
 
         // items 繰り返し(each)
         items.each(function (i) {
