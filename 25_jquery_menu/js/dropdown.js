@@ -31,7 +31,8 @@ $(function () {
         e.preventDefault();
 
         // アンカーに設定された値を取得
-        const anchor = this.getAttribute('href');
+        // const anchor = this.getAttribute('href'); // バニラJS
+        const anchor = $(this).attr('href'); // jQuery
         if (anchor) {
             // TODO: アンカーのY座標取得: offset().top
             const targetOffset = $(anchor).offset().top;
