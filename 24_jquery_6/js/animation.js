@@ -113,6 +113,9 @@ $(function () {
                 // TODO: dequeue()
                 $(this).removeClass('hidden').dequeue();
             });
+            // setTimeout(() => {
+            //     $(this).removeClass('hidden');
+            // }, i * delayTime);
         });
     });
 
