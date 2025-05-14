@@ -26,26 +26,32 @@ $(function () {
 
     $("#fadeInBtn").on("click", function () {
         // TODO: character_2 を fadeIn() でフェードイン
+        character_2.fadeIn(2000);
     });
 
     $("#fadeOutBtn").on("click", function () {
         // TODO: character_2 を fadeOut() でフェードアウト
+        character_2.fadeOut(500);
     });
 
     $("#fadeToggleBtn").on("click", function () {
         // TODO: character_2 を fadeToggle() でフェードトグル
+        character_2.fadeToggle();
     });
 
     $("#slideDownBtn").on("click", function () {
         // TODO: character_3 を slideDown() でスライド表示
+        character_3.slideDown();
     });
 
     $("#slideUpBtn").on("click", function () {
         // TODO: character_3 を slideUp() でスライド非表示
+        character_3.slideUp();
     });
 
     $("#slideToggleBtn").on("click", function () {
         // TODO: character_3 を slideToggle() でスライドトグル
+        character_3.slideToggle();
     });
 
     $("#shakeBtn").on("click", function () {
