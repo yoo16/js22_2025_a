@@ -22,6 +22,7 @@ $(function () {
     $navMenus.on('click', function () {
         // TODO: 親メニューの子要素 ul を slideUp() アニメーション
         // TODO: アニメーションは一旦停止
+
     });
 
     // スムーススクロール
