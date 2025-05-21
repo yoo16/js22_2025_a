@@ -12,9 +12,12 @@ $(document).ready(function () {
         const parallaxHeight = $('#parallax').outerHeight();
 
         // TODO: バックグラウンド画像を上へ移動：background-position-y: -scrollY px
-        // jqCssSet
         $('#parallax').css({
             'background-position-y': -scrollY + 'px'
+        });
+        // TODO: バックグラウンド画像を左へ移動：background-position-y: -scrollY px
+        $('#parallax').css({
+            'background-position-x': -scrollY + 'px'
         });
 
         // 文字コンテンツの移動距離計算
