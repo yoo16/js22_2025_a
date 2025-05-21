@@ -5,6 +5,9 @@ $(function () {
     function loadImages() {
 
         // TODO: items を繰り返し
+        items.forEach((data) => {
+            console.log(data);
+        });
             // --- ここから（繰り返し） ---
             const listItem = `
             <li class="relative group">
