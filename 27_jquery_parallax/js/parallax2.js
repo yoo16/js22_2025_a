@@ -28,6 +28,7 @@ $(document).ready(function () {
         const top = 0
         if (scrollTop + windowHeight > top + offset && $(selector).hasClass('invisible')) {
             // TODO: 表示処理：invisible クラス削除
+            $(selector).removeClass('invisible');
             // TODO: エフェクト処理： targets で設定した callback関数の実行
         }
     }
