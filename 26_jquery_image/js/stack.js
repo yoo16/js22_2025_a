@@ -24,7 +24,6 @@ function stackAnimation1() {
             left: '100%',
             marginTop: '-50px',
         }, 500,
-            // アニメーション終了後の処理
             function () {
                 resetPosition()
             }
@@ -32,12 +31,14 @@ function stackAnimation1() {
 
     // 元に戻すアニメーション
     function resetPosition() {
-        // TODO: 重ね順をオート設定: css('z-index', 'auto')
-
         // TODO: 元の位置に戻すアニメーション
         // 1. topImage を id=image-container の先頭に移動: prependTo()
         // 2. アニメーション: left: 0, top: 0, opacity: 0
-
+        topImage.prependTo('#image-container').animate({
+            left: 0,
+            marginTop: 0,
+            opacity: 1,
+        }, 500);
     }
 }
 
