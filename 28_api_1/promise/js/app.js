@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     let quotes;
                     try {
+                        // JSオブジェクトに変換
                         quotes = JSON.parse(xhr.responseText);
                     } catch (err) {
                         return reject("JSON のパースに失敗しました。");
