@@ -23,9 +23,12 @@ $(document).ready(function () {
         // スクロールオフセット
         const offset = windowHeight / 3;
         // TODO: スクロール位置取得: scrollTop()
-        const scrollTop = 0
+        const scrollTop = $(window).scrollTop();
+        // console.log(`scrollTop: ${scrollTop}`);
         // TODO: コンテンツ位置取得: offset().top
-        const top = 0
+        const top = $(selector).offset().top;
+        // console.log(`${selector} top: ${top}`);
+
         if (scrollTop + windowHeight > top + offset && $(selector).hasClass('invisible')) {
             // TODO: 表示処理：invisible クラス削除
             $(selector).removeClass('invisible');
