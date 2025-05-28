@@ -41,6 +41,7 @@ $(document).ready(function () {
         // TODO: アニメーション
         // css: opacity: 0
         // animate: opacity: 1
+        $(selector).css('opacity', 0).animate({ opacity: 1 }, 1000);
     }
 
     // スライドイン
@@ -48,6 +49,8 @@ $(document).ready(function () {
         // TODO: アニメーション
         // css: opacity: 0, width:  0
         // animate: opacity: 1, width: 100%
+        $(selector).css({ opacity: 0, width: 0 })
+                    .animate({ opacity: 1, width: '100%' }, 1000);
     }
 
     // スライド（レフト）
@@ -56,10 +59,11 @@ $(document).ready(function () {
         const start = $(window).width() * 0.5;
         // 終了位置
         const end = $(selector).position().left || 0;
-
         // TODO: アニメーション
         // css: position: relative, opacity: 0, left: start px
         // animate: opacity: 1, left: end px
+        $(selector).css({ position: 'relative', opacity: 0, left: start })
+                    .animate({ opacity: 1, left: end }, 1000);
     }
 
 });
