@@ -19,9 +19,10 @@ $(document).ready(function () {
     // スクロール量とターゲットコンテンツの進行割合計算
     function getProgress(target, scrollY) {
         const elementTop = target.offset().top;
-        const progress = Math.min(1, Math.max(0, (scrollY - elementTop + scrollOffset) / $(window).height()));
-        if (progress < 0) progress = 0;
-        if (progress > 1) progress = 1;
+        const max = Math.max(0, (scrollY - elementTop + scrollOffset) / $(window).height())
+        const progress = Math.min(1, max);
+        // if (progress < 0) progress = 0;
+        // if (progress > 1) progress = 1;
         return progress;
     }
 
@@ -41,6 +42,9 @@ $(document).ready(function () {
         const progress = getProgress(target, scrollY)
         if (progress > 0 && progress <= 1) {
             // TODO: target に css{ opacity: progress } を追加
+            target.css({
+                opacity: progress,
+            });
         }
     }
 
