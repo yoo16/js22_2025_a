@@ -25,14 +25,15 @@ const loadPrefectures = async () => {
 }
 
 // 都道府県プルダウン作成
+// function renderPrefectures(prefectures)
 const renderPrefectures = (prefectures) => {
     // 都道府県データで繰り返し
     prefectures.forEach((prefecture) => {
         var option = document.createElement('option');
         // TODO: value に都道府県コード設定
-        option.value;
+        option.value = prefecture.code;
         // TODO: テキストに都道府県名設定
-        option.innerHTML;
+        option.innerHTML = prefecture.name;
         // selectタグに、optionタグ追加
         document.getElementById('prefecture').appendChild(option)
     })
