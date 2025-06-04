@@ -48,9 +48,9 @@ const searchAddress = async (zipcode) => {
         const uri = SEARCH_URI + '?' + query_param.toString();
         console.log(uri);
         // TODO: 郵便番号検索APIにアクセス（非同期）
-        const response = {};
+        const response = await fetch(uri);
         // TODO: JSONデータを変換（非同期）
-        const data = {};
+        const data = response.json();
         return data;
     } catch (error) {
         errorDisplay.innerHTML = error;
@@ -69,9 +69,11 @@ const searchHandler = async () => {
     if (data.results) {
         const results = data.results[0];
         // TODO: value に都道府県コード設定: prefcode
-        document.getElementById('prefecture').value;
+        document.getElementById('prefecture').value
+            = results.prefcode;
         // TODO: テキストに住所設定: address2, address3
-        document.getElementById('city').value;
+        document.getElementById('city').value
+            = results.address2 + results.address3;
     } else {
         errorDisplay.innerHTML = data.message;
     }
