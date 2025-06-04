@@ -55,14 +55,14 @@ async function displayWeather(area = "") {
             card.innerHTML = `
                 <h2 class="text-md font-bold mb-2">${city}</h2>
                 <p class="flex justify-center">
-                    <img class="w-12 h-12" src="images/.png" alt="">
+                    <img class="w-12 h-12" src="images/${condition}.png" alt="">
                 </p>
                 <p class="text-gray-500">
                     <span class="text-red-500 font-bold">${temperature_max}</span>
                     /
                     <span class="text-blue-500 font-bold">${temperature_min}</span>
                 </p>
-                <p class="text-gray-500">%</p>
+                <p class="text-gray-500">${precipitationProbability}%</p>
             `;
             container.appendChild(card);
         });
