@@ -41,10 +41,10 @@ async function displayWeather(area = "") {
         }
 
         // TODO: 日時表示: weatherData.reportedAt
-        reportedAtContainer.innerHTML;
+        reportedAtContainer.innerHTML = weatherData.reportedAt;
 
         // TODO: トピック表示: weatherData.topics
-        topicContainer.innerHTML;
+        topicContainer.innerHTML = weatherData.topics;
 
         // 天気カード生成
         cities.forEach(({ city, temperature_max, temperature_min, condition, precipitationProbability }) => {
