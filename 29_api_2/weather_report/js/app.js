@@ -11,7 +11,8 @@ async function fetchWeather() {
         const uri = 'data/report.json';
 
         // TODO:APIから非同期でデータ取得: fetch()
-        const response = {};
+        // 'data/report.json' にアクセス
+        const response = await fetch(uri);
         if (!response.ok) {
             displayError("天気情報の取得に失敗しました");
         }
