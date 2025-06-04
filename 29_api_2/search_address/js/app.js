@@ -7,13 +7,14 @@ const errorDisplay = document.getElementById('error');
 const loadPrefectures = async () => {
     try {
         // TODO: 都道府県JSON読み込み（非同期）: PREFECTURE_FILE_PATH
-        const response = {};
+        // './data/prefectures.json' に Fetch API を使ってアクセス
+        const response = await fetch(PREFECTURE_FILE_PATH);
         if (!response.ok) {
             errorDisplay.innerHTML = '都道府県読み込みエラー';
             return;
         }
         // TODO: レスポンスされたJSONを、オブジェクトに変換（非同期）
-        const prefectures = {};
+        const prefectures = await response.json();
         console.log(prefectures);
 
         // 都道府県プルダウン作成
