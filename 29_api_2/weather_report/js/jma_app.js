@@ -154,8 +154,9 @@ async function displayWeather(officeCode) {
             card.innerHTML = `
                     <h2 class="text-md font-bold mb-2">${name}</h2>
                     <p class="flex justify-center">
-                        <img class="w-12 h-12" src="svg/${image}." alt="">
+                        <img class="w-12 h-12" src="svg/${image}" alt="">
                     </p>
+                    <p class="text-gray-500">${weatherName}</p>
                     <p class="text-gray-500">
                         <span class="text-red-500 font-bold">
                         ${temperature[1]}
