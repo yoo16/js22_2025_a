@@ -1,6 +1,6 @@
 const defaultLat = 35.6812;
 const defaultLng = 139.7671;
-const zoom = 13;
+const zoom = 18;
 // TODO: 初期位置を設定：例（東京駅）
 let place = '東京駅';
 
