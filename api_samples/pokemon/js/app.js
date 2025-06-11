@@ -19,10 +19,14 @@ async function loadPokemon() {
         try {
             // TODO: API URL: https://pokeapi.co/api/v2/pokemon/{id}
             const uri = `https://pokeapi.co/api/v2/pokemon/${id}`;
+            // PokeAPIからポケモンデータを取得
             const res = await fetch(uri);
             if (!res.ok) continue;
 
+            // JSON形式でレスポンスを取得
             const data = await res.json();
+            console.log(data);
+            // カードを生成
             html += createPokemonCard(data, id);
         } catch (e) {
             html += `<p>ID ${id} の取得に失敗しました。</p>`;
@@ -63,14 +67,14 @@ function createPokemonCard(data, id) {
 
     return `
         <div class="bg-white rounded-lg shadow-md p-4 text-center">
-            <p class="text-sm text-gray-500">No.</p>
-            <img src="" alt="" class="mx-auto w-24 h-24 mb-2" />
-            <p class="text-lg font-bold capitalize"></p>
-            <p class="text-gray-600">タイプ: </p>
+            <p class="text-sm text-gray-500">No.${number}</p>
+            <img src="${image}" alt="" class="mx-auto w-24 h-24 mb-2" />
+            <p class="text-lg font-bold capitalize">${name}</p>
+            <p class="text-gray-600">タイプ: ${types}</p>
             <p class="text-gray-600 text-sm">
-                高さ:  m 
+                高さ: ${height} m 
                 / 
-                重さ:  kg
+                重さ: ${weight} kg
             </p>
         </div>
     `;
