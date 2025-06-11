@@ -18,7 +18,7 @@ async function loadPokemon() {
 
         try {
             // TODO: API URL: https://pokeapi.co/api/v2/pokemon/{id}
-            const uri = ``;
+            const uri = `https://pokeapi.co/api/v2/pokemon/${id}`;
             const res = await fetch(uri);
             if (!res.ok) continue;
 
