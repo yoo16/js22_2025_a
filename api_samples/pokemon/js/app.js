@@ -41,7 +41,7 @@ async function loadPokemonByName(name) {
     result.innerHTML = '検索中...';
     try {
         // TODO: API URL: https://pokeapi.co/api/v2/pokemon/{name}
-        const uri = ``;
+        const uri = `https://pokeapi.co/api/v2/pokemon/${name}`;
         const res = await fetch(uri);
         if (!res.ok) throw new Error('ポケモンが見つかりませんでした');
 
