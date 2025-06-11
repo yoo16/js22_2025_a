@@ -1,6 +1,6 @@
 // TODO: 緯度・経度の設定
-const lat = 0; // 東京駅の緯度: 35.6812
-const lng = 0; // 東京駅の経度: 139.7671
+const lat = 35.6812; // 東京駅の緯度: 35.6812
+const lng = 139.7671; // 東京駅の経度: 139.7671
 const map = L.map("map").setView([lat, lng], 12);
 
 // Leafletのタイルレイヤーを追加
@@ -48,6 +48,7 @@ function populateCategoryOptions() {
 
 // ロケーションデータを読み込み、マーカーを表示
 async function loadLocations() {
+    // 外部APIから店舗情報を取得
     const uri = "./api/locations.json";
     const res = await fetch(uri);
     const locations = await res.json();
@@ -85,10 +86,10 @@ function renderMarkers(locations) {
         `;
 
         // TODO: マーカー追加
-        // const marker = L.marker([loc.lat, loc.lng], { icon })
-        //     .addTo(map)
-        //     .bindPopup(popupContent);
-        // allMarkers.push(marker);
+        const marker = L.marker([loc.lat, loc.lng], { icon })
+            .addTo(map)
+            .bindPopup(popupContent);
+        allMarkers.push(marker);
     });
 }
 
