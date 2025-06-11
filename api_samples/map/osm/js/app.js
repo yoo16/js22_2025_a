@@ -2,7 +2,7 @@ const defaultLat = 35.6812;
 const defaultLng = 139.7671;
 const zoom = 13;
 // TODO: 初期位置を設定：例（東京駅）
-let location = '';
+let place = '東京駅';
 
 // 地図初期化
 const map = L.map('map').setView([defaultLat, defaultLng], zoom);
@@ -12,9 +12,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
 }).addTo(map);
 
-// 初期マーカー
+// TODO: 初期マーカー (変数を place に変更して)
 let marker = L.marker([defaultLat, defaultLng]).addTo(map)
-    .bindPopup(location)
+    .bindPopup(place)
     .openPopup();
 
 // 🔍 地名検索ボタン処理
@@ -24,7 +24,7 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
 
     // TODO: OSM Nominatim APIのURL
     // https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}
-    const url = ``;
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`;
 
     try {
         // APIリクエスト
@@ -42,7 +42,7 @@ document.getElementById('searchBtn').addEventListener('click', async () => {
 
         // TODO: 緯度・経度・表示名を取得
         console.log(data)
-        const { lat, lon, display_name } = [];
+        const { lat, lon, display_name } = data[0];
 
         // 地図移動
         map.setView([lat, lon], zoom);
