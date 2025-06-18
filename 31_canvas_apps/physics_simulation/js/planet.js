@@ -45,7 +45,7 @@ planetData.forEach(data => {
     // メッシュの作成
     const mesh = new THREE.Mesh(geometry, material);
     // TODO: 惑星をシーンに追加
-    // scene.add(mesh);
+    scene.add(mesh);
 
     // 軌道リング
     const segments = 128;
