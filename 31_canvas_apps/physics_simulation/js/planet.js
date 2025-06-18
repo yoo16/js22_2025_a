@@ -1,6 +1,6 @@
 // 色設定
-const backgroundColor = '#ffffff';
-const orbitLineColor = '#000000';
+const backgroundColor = '#000000';
+const orbitLineColor = '#ffffff';
 const pointLightColor = '#ffffff';
 
 // シーンの初期化
