@@ -148,6 +148,7 @@ downloadButton.addEventListener('click', () => {
     // a 追加
     document.body.appendChild(a);
     // TODO: aリンクをクリック
+    a.click();
 
     // a 削除
     document.body.removeChild(a);
