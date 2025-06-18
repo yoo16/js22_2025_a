@@ -39,8 +39,8 @@ const countdownAudio = new Audio('audio/countdown.wav');
 let audioEnabled = true;
 
 // TODO: 合成用フレーム画像オブジェクト
-// const overlayFrame = new Image();
-// overlayFrame.src = currentFrameSrc;
+const overlayFrame = new Image();
+overlayFrame.src = currentFrameSrc;
 
 /**
  * 合成用の Canvas を作成し、DOM へ追加
@@ -140,8 +140,8 @@ captureBtn.addEventListener('click', () => {
 frameThumbnails.forEach(thumb => {
     thumb.addEventListener('click', () => {
         // TODO: クリックされたサムネイルからフレーム画像のパスを取得
-        // currentFrameSrc = thumb.dataset.frame;
-        // overlayFrame.src = currentFrameSrc;
+        currentFrameSrc = thumb.dataset.frame;
+        overlayFrame.src = currentFrameSrc;
 
         // 選択中のサムネイルにスタイルを適用
         frameThumbnails.forEach(t => t.classList.remove('border-blue-500'));
