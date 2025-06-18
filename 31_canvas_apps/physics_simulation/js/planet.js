@@ -23,16 +23,16 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // TODO: シーンに太陽を追加
-// const sun = new THREE.Mesh(
-//     new THREE.SphereGeometry(10, 32, 32),
-//     new THREE.MeshBasicMaterial({ color: 0xff5500 })
-// );
-// scene.add(sun);
+const sun = new THREE.Mesh(
+    new THREE.SphereGeometry(10, 32, 32),
+    new THREE.MeshBasicMaterial({ color: 0xff5500 })
+);
+scene.add(sun);
 
 // TODO: --- 環境光 ---
-// const pointLight = new THREE.PointLight(pointLightColor, 1.5, 0);
-// pointLight.position.copy(sun.position);
-// scene.add(pointLight);
+const pointLight = new THREE.PointLight(pointLightColor, 1.5, 0);
+pointLight.position.copy(sun.position);
+scene.add(pointLight);
 
 // --- 惑星 ---
 const planets = [];
