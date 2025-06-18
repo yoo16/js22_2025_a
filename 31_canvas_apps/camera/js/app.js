@@ -61,8 +61,8 @@ function createCompositeCanvas() {
  */
 const onCamera = async () => {
     // TODO: カメラの有効化処理を実装
-    // const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    // video.srcObject = stream;
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
 };
 
 /**
