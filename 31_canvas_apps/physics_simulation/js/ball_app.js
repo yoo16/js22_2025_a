@@ -9,7 +9,7 @@ const resetButton = document.getElementById("resetButton");
 
 function preload() {
     // TODO: 画像ファイルのパスを指定して読み込みます
-    // ballImage = loadImage("assets/player.png");
+    ballImage = loadImage("assets/player.png");
 }
 
 function setup() {
@@ -46,7 +46,7 @@ function draw() {
 
     // TODO: シミュレーション実行中なら物理更新: update()
     if (simulationRunning) {
-        // ball.update();
+        ball.update();
     }
     ball.display();
     ball.displayStatus();
