@@ -62,6 +62,7 @@ async function detectFace() {
  * 顔検出結果を描画
  */
 function drawResults(faces) {
+    // Canvasのクリア
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
     ctx.fillStyle = 'red';
 
@@ -77,8 +78,8 @@ function drawResults(faces) {
                     // TODO: ランドマークの座標をキャンバスに描画
                     // X座標 * キャンバスの幅 / ビデオの幅
                     // Y座標 * キャンバスの高さ / ビデオの高さ
-                    const x = 0;
-                    const y = 0;
+                    const x = point.x * canvasEl.width / videoWidth;
+                    const y = point.y * canvasEl.height / videoHeight;
 
                     // 点を描画
                     ctx.beginPath();
