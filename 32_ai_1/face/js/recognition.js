@@ -25,7 +25,7 @@ async function loadModel() {
         runtime: 'mediapipe',
         solutionPath: 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh',
     };
-    // TODO: 「MediaPipeFaceMesh」モデルを設定して、検出器(detector)を作成
+    // 「MediaPipeFaceMesh」モデルを設定して、検出器(detector)を作成
     detector = await faceLandmarksDetection.createDetector(model, detectorConfig);
 }
 
@@ -54,8 +54,8 @@ async function setupCamera() {
 async function detectFace() {
     const estimationConfig = { flipHorizontal: false };
     // TODO: 顔検出を実装
-    // const faces = await detector.estimateFaces(videoEl, estimationConfig);
-    // return faces;
+    const faces = await detector.estimateFaces(videoEl, estimationConfig);
+    return faces;
 }
 
 /**
