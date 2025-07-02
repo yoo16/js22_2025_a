@@ -202,8 +202,8 @@ function isHeadDroping(keypoints) {
     const rightEar = keypoints[4];
 
     // TODO: 目と耳の位置(Y)を比較して、うつむきかどうかを判定
-    const leftDrop = leftEye.y < leftEar.y;
-    const rightDrop = rightEye.y < rightEar.y;
+    const leftDrop = leftEar.y < leftEye.y;
+    const rightDrop = rightEar.y < rightEye.y;
 
     // TODO: 目の方が下ならうつむきと判定
     return leftDrop || rightDrop;
