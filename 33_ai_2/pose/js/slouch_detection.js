@@ -89,6 +89,7 @@ function drawKeypoints(keypoints) {
         if (point.score > 0.5) {
             const x = point.x * canvas.width / video.videoWidth;
             const y = point.y * canvas.height / video.videoHeight;
+            // 点を描画
             ctx.beginPath();
             ctx.arc(x, y, 3, 0, 2 * Math.PI);
             ctx.fillStyle = 'white';
@@ -201,11 +202,11 @@ function isHeadDroping(keypoints) {
     const rightEar = keypoints[4];
 
     // TODO: 目と耳の位置(Y)を比較して、うつむきかどうかを判定
-    const leftDrop = false;
-    const rightDrop = false;
+    const leftDrop = leftEye.y < leftEar.y;
+    const rightDrop = rightEye.y < rightEar.y;
 
     // TODO: 目の方が下ならうつむきと判定
-    return false;
+    return leftDrop || rightDrop;
 }
 
 /**
