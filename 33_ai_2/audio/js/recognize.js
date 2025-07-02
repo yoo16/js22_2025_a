@@ -37,7 +37,7 @@ function predictWord(words) {
             scores.sort((s1, s2) => s2.score - s1.score);
 
             // TODO: 単語決定: scores[0].word;
-            const recognizedWord = "";
+            const recognizedWord = scores[0].word;
             console.log(recognizedWord);
 
             // 単語ハイライト
@@ -150,7 +150,7 @@ function updateInputLevel() {
     const level = Math.min(100, rms * 100 * 2);
 
     // TODO: プログレスバー更新
-    progressBar.value = 0;
+    progressBar.value = level;
 
     // フレーム更新
     requestAnimationFrame(updateInputLevel);
@@ -190,7 +190,7 @@ async function app() {
     await recognizer.ensureModelLoaded();
 
     // TODO: 単語ラベル取得: recognizer.wordLabels()
-    const words = {};
+    const words = recognizer.wordLabels();
     console.log(words);
     // 単語ラベル表示
     displayWordList(words);
