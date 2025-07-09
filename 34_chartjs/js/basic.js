@@ -37,9 +37,9 @@ function renderChart() {
                 // TODO: 塗りつぶしの色: backgroundColor
                 backgroundColor: colors, 
                 // TODO: 枠線の色: borderColor
-                borderColors: [],
+                borderColor: borderColors,
                 // TODO: 枠線の太さ: borderWidth
-                borderWidth: 0
+                borderWidth: 1
             }]
         },
         options: {
