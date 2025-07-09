@@ -35,7 +35,7 @@ function renderChart() {
                 // TODO: Y軸のデータ: data
                 data: values, // [12, 19, 3],
                 // TODO: 塗りつぶしの色: backgroundColor
-                backgroundColor: [],
+                backgroundColor: colors, 
                 // TODO: 枠線の色: borderColor
                 borderColors: [],
                 // TODO: 枠線の太さ: borderWidth
