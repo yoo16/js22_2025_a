@@ -31,7 +31,7 @@ function renderChart() {
             labels: labels, // ['Red', 'Blue', 'Yellow'],
             datasets: [{
                 // TODO: データセットのラベル: label
-                label: '',
+                label: '色の投票数', // label,
                 // TODO: Y軸のデータ: data
                 data: values, // [12, 19, 3],
                 // TODO: 塗りつぶしの色: backgroundColor
@@ -46,7 +46,7 @@ function renderChart() {
             plugins: {
                 // 凡例の表示設定
                 legend: {
-                    display: true
+                    display: false,
                 }
             },
         }
