@@ -37,6 +37,7 @@ document.getElementById('saveList').addEventListener('click', () => {
 
 document.getElementById('loadList').addEventListener('click', () => {
     // TODO: Local Storage からーを指定して取得
+    const json = localStorage.getItem('items');
 
     // JSONをオブジェクトに変換
     const data = json ? JSON.parse(json) : [];
@@ -48,6 +49,6 @@ document.getElementById('loadList').addEventListener('click', () => {
 
 document.getElementById('removeList').addEventListener('click', () => {
     // TODO: Local Storage からキーを指定して削除
-
+    localStorage.removeItem('items');
     output.textContent = '削除しました。';
 });
