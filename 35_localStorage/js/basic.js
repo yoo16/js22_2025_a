@@ -13,13 +13,13 @@ document.getElementById('save').addEventListener('click', () => {
 
 document.getElementById('load').addEventListener('click', () => {
     // TODO: Local Storage からキーを指定して読み込み
-    const text = "";
+    const text = localStorage.getItem('message');
     output.textContent = `読み込み:\n ${text ? text : ''}`;
 });
 
 document.getElementById('remove').addEventListener('click', () => {
     // TODO: Local Storage からキーを指定して削除
-
+    localStorage.removeItem('message');
     output.textContent = '削除しました。';
 });
 
