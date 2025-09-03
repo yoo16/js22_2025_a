@@ -45,12 +45,14 @@ const store = {
      */
     remove(key) {
         // TODO: キーを指定して削除
+        localStorage.removeItem(key);
     },
     /**
      * すべて削除
      */
     clear() {
         // TODO: すべて削除
+        localStorage.clear();
     }
 };
 
