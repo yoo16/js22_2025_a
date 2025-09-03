@@ -163,7 +163,8 @@ function save() {
  */
 function filtered() {
     // TODO: active, done フィルタリング
-    // todos.filter(...)
+    if (filter === "active") return todos.filter(todo => !todo.done);
+    if (filter === "done") return todos.filter(todo => todo.done);
     return todos;
 }
 
@@ -188,6 +189,7 @@ function setFilter(selected) {
  */
 const filterHandler = (e) => {
     e.preventDefault();
+    // data-filter 属性の値を取得: all, active, done
     const filter = e.target.dataset.filter;
     if (filter) {
         setFilter(filter);
