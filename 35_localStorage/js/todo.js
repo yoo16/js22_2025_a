@@ -228,6 +228,10 @@ function renderItem(todo) {
     deleteButton.textContent = "削除";
     // TODO: クリックで remove を呼び出し
     deleteButton.onclick = () => remove(todo.id);
+    // deleteButton.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     remove(todo.id);
+    // });
 
     // アイテムに要素を追加
     li.append(checkBox, span, deleteButton);
