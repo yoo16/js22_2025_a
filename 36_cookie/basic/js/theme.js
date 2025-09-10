@@ -63,9 +63,10 @@ window.addEventListener("DOMContentLoaded", () => {
         const media = matchMedia("(prefers-color-scheme: dark)");
         media.addEventListener("change", (e) => {
             // Cookieに保存されていない場合のみ反映
+            console.log(e.matches);
             if (!getCookie(THEME_KEY)) {
                 // TODO: e.matches の値に応じて applyTheme を呼び出し
-                
+                applyTheme(e.matches ? "dark" : "light");
             }
         });
     }
