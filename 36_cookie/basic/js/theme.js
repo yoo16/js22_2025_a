@@ -15,12 +15,14 @@ function applyTheme(value) {
     console.log("テーマ:", theme);
 
     // TODO: html要素(rootオブジェクト）に dark クラスをトグル設定
+    root.classList.toggle("dark", theme === "dark");
 
     // ラベル、アイコン更新
     if (label) label.textContent = theme === "dark" ? "ダーク" : "ライト";
     if (icon) icon.textContent = theme === "dark" ? "🌙" : "🌞";
 
     // TODO: Cookieに保存: THEME_KEY, theme
+    setCookie(THEME_KEY, theme);
 
     // ボタンを更新: UI上だけでなくアクセシビリティ的にも明示するための属性
     document.getElementById("themeBtn")?.setAttribute("aria-pressed", String(theme === "dark"));
@@ -32,7 +34,7 @@ function applyTheme(value) {
 // テーマ切り替え
 function toggleTheme() {
     // TODO: 現在の状態を反転: theme = dark / light
-    const next = "";
+    const next = (theme === "dark") ? "light" : "dark";
     // Themeを適用
     applyTheme(next);
 }
