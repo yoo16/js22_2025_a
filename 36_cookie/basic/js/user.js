@@ -5,6 +5,7 @@ const KEY = "account_name";
 showCookies();
 
 document.getElementById("testBtn").addEventListener("click", () => {
+    // JSONでは保存しないように（できたとしても推奨されない）
     // const user = {
     //     name: "山田太郎",
     //     age: 30,
