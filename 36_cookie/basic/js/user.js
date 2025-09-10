@@ -6,7 +6,7 @@ showCookies();
 
 document.getElementById("testBtn").addEventListener("click", () => {
     // cookie 保存
-    document.cookie = "message=とりあえず保存！";
+    document.cookie = "city=東京";
 });
 
 // Cookie一覧表示
