@@ -53,7 +53,7 @@ document.getElementById("saveBtn").addEventListener("click", () => {
 document.getElementById("deleteBtn").addEventListener("click", () => {
     // Cookie削除
     deleteCookie(KEY);
-    // document.cookie = `account_name=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    // document.cookie = "account_name=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
 
     // 表示更新
     showCookies();
