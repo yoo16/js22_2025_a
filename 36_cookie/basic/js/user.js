@@ -5,7 +5,13 @@ const KEY = "account_name";
 showCookies();
 
 document.getElementById("testBtn").addEventListener("click", () => {
-    // cookie 保存
+    // const user = {
+    //     name: "山田太郎",
+    //     age: 30,
+    // };
+    // const json = JSON.stringify(user);
+    // // cookie 保存
+    // document.cookie = `user=${json}`;
     document.cookie = "city=東京";
 });
 
