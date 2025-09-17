@@ -86,28 +86,41 @@ function toggleVoiceLoading(isLoading) {
  * 声優一覧APIをGET取得
  * URI: https://api.nijivoice.com/api/platform/v1/voice-actors
  */
+// async function getActors() {
+//     try {
+//         // TODO: オプション設定
+//         // メソッド: GET
+//         // ヘッダー: accept: application/json
+//         // x-api-key: API_KEY 
+//         const options = {
+//             method: 'GET',
+//             headers: {
+//                 accept: 'application/json',
+//                 'x-api-key': API_KEY
+//             }
+//         };
+
+//         // TODO: 声優一覧APIのURL
+//         const uri = 'https://api.nijivoice.com/api/platform/v1/voice-actors';
+//         // Fetch API で取得
+//         const response = await fetch(uri, options);
+//         // オブジェクトに変換
+//         const data = await response.json();
+//         console.log("取得:", data);
+//         // 声優一覧をグローバル変数にセット
+//         actorsData = data.voiceActors || [];
+//         return actorsData;
+//     } catch (err) {
+//         console.error(err);
+//         messageContainer.textContent = '声優一覧の取得に失敗しました。';
+//     }
+// }
+
+// サーバ証明書で動かない人
 async function getActors() {
     try {
-        // TODO: オプション設定
-        // メソッド: GET
-        // ヘッダー: accept: application/json
-        // x-api-key: API_KEY 
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                'x-api-key': API_KEY
-            }
-        };
-
-        // TODO: 声優一覧APIのURL
-        const uri = 'https://api.nijivoice.com/api/platform/v1/voice-actors';
-        // Fetch API で取得
-        const response = await fetch(uri, options);
-        // オブジェクトに変換
+        const response = await fetch('./api/getActors.php');
         const data = await response.json();
-        console.log("取得:", data);
-        // 声優一覧をグローバル変数にセット
         actorsData = data.voiceActors || [];
         return actorsData;
     } catch (err) {
