@@ -93,11 +93,15 @@ async function getActors() {
         // ヘッダー: accept: application/json
         // x-api-key: API_KEY 
         const options = {
-
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                'x-api-key': API_KEY
+            }
         };
 
         // TODO: 声優一覧APIのURL
-        const uri = '';
+        const uri = 'https://api.nijivoice.com/api/platform/v1/voice-actors';
         // Fetch API で取得
         const response = await fetch(uri, options);
         // オブジェクトに変換
@@ -353,6 +357,7 @@ function setupInfiniteScroll(callback, options = { rootMargin: "200px" }) {
 
 // 初期ロード
 (async () => {
+    // 声優一覧を取得
     const allActors = await getActors();
     if (allActors?.length) {
         // 最初のバッチを描画
@@ -360,7 +365,7 @@ function setupInfiniteScroll(callback, options = { rootMargin: "200px" }) {
         // 最初の声優を選択状態に
         selectActor(allActors[0].id);
     }
-
+    // 残高を取得して表示
     const remainingBalance = await getBalance();
     displayBlance(remainingBalance);
 })();
