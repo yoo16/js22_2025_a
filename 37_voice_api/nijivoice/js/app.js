@@ -223,28 +223,55 @@ async function getVoice(id, message) {
  * 残高情報APIを取得
  * URI: https://api.nijivoice.com/api/platform/v1/balances
  */
+// async function getBalance() {
+//     try {
+//         const options = {
+//             method: 'GET',
+//             headers: {
+//                 accept: 'application/json',
+//                 'x-api-key': API_KEY
+//             }
+//         };
+
+//         // TODO: 残高情報APIのURL
+//         const uri = 'https://api.nijivoice.com/api/platform/v1/balances';
+//         // Fetch API で取得
+//         const response = await fetch(uri, options);
+//         // オブジェクトに変換
+//         const data = await response.json();
+//         console.log(data)
+
+//         // TODO: 残高を返す: data.balances.remainingBalance
+//         return data.balances.remainingBalance;
+//     } catch (err) {
+//         console.error("残高取得エラー: ", err);
+//     }
+// }
+
+// サーバ証明書で動かない人
+// Apache + PHP でプロキシ経由で取得
+/**
+ * getBalance()
+ * PHP経由で残高を取得する
+ */
 async function getBalance() {
     try {
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                'x-api-key': API_KEY
-            }
-        };
+        // balance.php にリクエスト
+        const response = await fetch("./api/balance.php");
+        if (!response.ok) {
+            throw new Error("残高APIリクエスト失敗");
+        }
 
-        // TODO: 残高情報APIのURL
-        const uri = 'https://api.nijivoice.com/api/platform/v1/balances';
-        // Fetch API で取得
-        const response = await fetch(uri, options);
-        // オブジェクトに変換
         const data = await response.json();
-        console.log(data)
+        console.log("残高API結果:", data);
 
-        // TODO: 残高を返す: data.balances.remainingBalance
-        return data.balances.remainingBalance;
+        // data.balances.remainingBalance があれば返す
+        return data?.balances?.remainingBalance ?? 0;
+
     } catch (err) {
         console.error("残高取得エラー: ", err);
+        messageContainer.textContent = "残高の取得に失敗しました。";
+        return 0;
     }
 }
 
