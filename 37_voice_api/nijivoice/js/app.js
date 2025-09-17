@@ -221,8 +221,8 @@ function selectActor(id) {
     actorMessage.placeholder = 'セリフを入力してください';
 
     // TODO: 初期音声はサンプル音声URLがあれば更新（なければそのまま）
-    // src: actor.sampleVoiceUrl || ''
-    actorAudio.src = '';
+    // src: actor.sampleVoiceUrl
+    actorAudio.src = actor.sampleVoiceUrl;
 
     // TODO: 画像の読み込み完了時にローディングを非表示
     actorImg.onload = () => {
