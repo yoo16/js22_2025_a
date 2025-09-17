@@ -136,48 +136,46 @@ async function getActors() {
  * 音声生成APIをPOSTして音声生成&取得
  * URI: https://api.nijivoice.com/api/platform/v1/voice-actors/{id}/generate-voice
  * 
- * @param {*} id 
- * @param {*} message 
+ * @param {*} id : 声優のID 
+ * @param {*} message : セリフ（台本）
  * @returns 
  */
 async function getVoice(id, message) {
     if (!message.trim()) return;
 
     try {
-        // speed, emotion の値を取得
         speed = document.getElementById('voice-speed')?.value || '1.0';
         emotion = document.getElementById('voice-emotion')?.value || '0.1';
 
-        // TODO: POST送信パラメータ
-        // format: mp3
-        // speed: スライダーの値
-        // emotionalLevel: スライダーの値
-        // soundDuration: 0.1 固定（string）
-        // script: 引数の message
         const params = {
+            format: format,
+            speed: speed,
+            emotionalLevel: emotion,
+            soundDuration: '0.1',
+            script: message,
         };
 
-        // TODO: オプション設定
-        // メソッド: POST
-        // ヘッダー: accept: application/json
-        //          content-type: application/json
-        // x-api-key: API_KEY 
-        // body: JSON.stringify(データ)
         const options = {
+            method: 'POST',
+            headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                'x-api-key': API_KEY
+            },
+            body: JSON.stringify(params)
         };
 
-        // TODO: 音声生成APIのURL: {id} は引数の id に置換
-        const uri = ``;
-        // Fetch API で取得
+        const uri = `https://api.nijivoice.com/api/platform/v1/voice-actors/${id}/generate-voice`;
+        console.log('POST:', uri, params);
+
         const response = await fetch(uri, options);
-        // オブジェクトに変換
         const data = await response.json();
-        console.log("音声生成結果:", data);
         return data;
     } catch (err) {
         console.error("音声生成エラー: ", err);
     }
 }
+
 
 /**
  * getBalance()
@@ -282,13 +280,15 @@ async function createVoice(id, text) {
     if (!text.trim()) return;
 
     const data = await getVoice(id, text);
+    console.log("生成結果:", data);
+
     // レスポンスから生成されたオブジェクトを取得
     const { generatedVoice } = data;
     if (generatedVoice && generatedVoice.audioFileUrl && generatedVoice.audioFileDownloadUrl) {
         // TODO: audio タグに src をセット: generatedVoice.audioFileUrl
-        actorAudio.src = "";
+        actorAudio.src = generatedVoice.audioFileUrl;
         // TODO: ダウンロードリンクに href をセット: generatedVoice.audioFileDownloadUrl
-        downloadBtn.href = "";
+        downloadBtn.href = generatedVoice.audioFileDownloadUrl;
 
         // 生成後の残クレジット数で残高表示を更新（もし取得できれば）
         if (typeof generatedVoice.remainingCredits === 'number') {
