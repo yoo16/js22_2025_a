@@ -140,42 +140,82 @@ async function getActors() {
  * @param {*} message : セリフ（台本）
  * @returns 
  */
+// async function getVoice(id, message) {
+//     if (!message.trim()) return;
+
+//     try {
+//         speed = document.getElementById('voice-speed')?.value || '1.0';
+//         emotion = document.getElementById('voice-emotion')?.value || '0.1';
+
+//         const params = {
+//             format: format,
+//             speed: speed,
+//             emotionalLevel: emotion,
+//             soundDuration: '0.1',
+//             script: message,
+//         };
+
+//         const options = {
+//             method: 'POST',
+//             headers: {
+//                 accept: 'application/json',
+//                 'content-type': 'application/json',
+//                 'x-api-key': API_KEY
+//             },
+//             body: JSON.stringify(params)
+//         };
+
+//         const uri = `https://api.nijivoice.com/api/platform/v1/voice-actors/${id}/generate-voice`;
+//         console.log('POST:', uri, params);
+
+//         const response = await fetch(uri, options);
+//         const data = await response.json();
+//         return data;
+//     } catch (err) {
+//         console.error("音声生成エラー: ", err);
+//     }
+// }
+
+// サーバ証明書で動かない人
+// Apache + PHP でプロキシ経由で取得
+/**
+ * getVoice()
+ * PHP経由で音声生成APIを呼び出す
+ */
 async function getVoice(id, message) {
     if (!message.trim()) return;
 
     try {
+        // speed, emotion の値を取得
         speed = document.getElementById('voice-speed')?.value || '1.0';
         emotion = document.getElementById('voice-emotion')?.value || '0.1';
 
-        const params = {
-            format: format,
-            speed: speed,
-            emotionalLevel: emotion,
-            soundDuration: '0.1',
-            script: message,
-        };
+        // フォームデータを作成
+        const formData = new FormData();
+        formData.append("id", id);
+        formData.append("message", message);
+        formData.append("speed", speed);
+        formData.append("emotion", emotion);
 
-        const options = {
-            method: 'POST',
-            headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-                'x-api-key': API_KEY
-            },
-            body: JSON.stringify(params)
-        };
+        // PHP (generateVoice.php) にPOST
+        const response = await fetch("./api/generateVoice.php", {
+            method: "POST",
+            body: formData
+        });
 
-        const uri = `https://api.nijivoice.com/api/platform/v1/voice-actors/${id}/generate-voice`;
-        console.log('POST:', uri, params);
+        if (!response.ok) {
+            throw new Error("音声生成APIリクエスト失敗");
+        }
 
-        const response = await fetch(uri, options);
         const data = await response.json();
+        console.log("音声生成結果:", data);
         return data;
+
     } catch (err) {
         console.error("音声生成エラー: ", err);
+        messageContainer.textContent = "音声生成に失敗しました。";
     }
 }
-
 
 /**
  * getBalance()
