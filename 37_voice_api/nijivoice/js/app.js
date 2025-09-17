@@ -215,9 +215,9 @@ function selectActor(id) {
     // alt: actor.name
     // textContent: actor.name
     // placeholder: actor.sampleScript || '台本を入力してください'
-    actorImg.src = '';
-    actorImg.alt = '';
-    actorName.textContent = '';
+    actorImg.src = actor.smallImageUrl;
+    actorImg.alt = actor.name;
+    actorName.textContent = actor.name;
     actorMessage.placeholder = 'セリフを入力してください';
 
     // TODO: 初期音声はサンプル音声URLがあれば更新（なければそのまま）
