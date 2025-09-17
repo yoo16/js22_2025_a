@@ -234,7 +234,7 @@ async function getBalance() {
         };
 
         // TODO: 残高情報APIのURL
-        const uri = '';
+        const uri = 'https://api.nijivoice.com/api/platform/v1/balances';
         // Fetch API で取得
         const response = await fetch(uri, options);
         // オブジェクトに変換
@@ -242,7 +242,7 @@ async function getBalance() {
         console.log(data)
 
         // TODO: 残高を返す: data.balances.remainingBalance
-        return 0;
+        return data.balances.remainingBalance;
     } catch (err) {
         console.error("残高取得エラー: ", err);
     }
