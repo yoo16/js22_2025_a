@@ -117,6 +117,7 @@ function toggleVoiceLoading(isLoading) {
 // }
 
 // サーバ証明書で動かない人
+// Apache + PHP でプロキシ経由で取得
 async function getActors() {
     try {
         const response = await fetch('./api/getActors.php');
