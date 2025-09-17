@@ -9,7 +9,7 @@
         // api/csrf.php からCSRFトークンを取得
         const res = await fetch("./api/csrf.php", {
             // TODO: セッションCookie必須
-            // credentials: "include"
+            credentials: "include"
         });
         const data = await res.json();
         csrfToken = data.csrf_token;
@@ -19,10 +19,10 @@
         const res = await fetch(url, {
             method: "POST",
             // TODO: CSRFトークンをヘッダーにセット
-            // headers: {
-            //     "Content-Type": "application/json",
-            //     ...(csrfToken ? { "X-CSRF-Token": csrfToken } : {})
-            // },
+            headers: {
+                "Content-Type": "application/json",
+                ...(csrfToken ? { "X-CSRF-Token": csrfToken } : {})
+            },
             credentials: "include",
             body: JSON.stringify(body),
         });
@@ -47,6 +47,7 @@
             const password = $("#password").value;
             // api/login.php へPOST
             const data = await postJSON("./api/login.php", { email, password });
+            // データの中から、CSRFトークンを更新
             csrfToken = data.csrf_token || null;
             out(data);
         });
