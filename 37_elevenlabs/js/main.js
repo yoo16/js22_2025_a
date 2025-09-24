@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             // TODO: ダウンロードボタン有効化
+            downloadBtn.href = url;
 
             // 拡張子判定
             const extension = mimeType.includes("mpeg")
