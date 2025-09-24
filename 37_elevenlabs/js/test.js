@@ -1,5 +1,5 @@
 document.getElementById("play").addEventListener("click", async () => {
-    const text = "こんにちは。の音声はElevenLabsで再生しました";
+    const text = "Hello, eleven labs!";
     const status = document.getElementById("status");
     status.textContent = "⏳ 音声生成中...";
 
