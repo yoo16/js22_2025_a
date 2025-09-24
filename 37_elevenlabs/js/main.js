@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     playBtn.addEventListener("click", async () => {
-        // ブラウザからテキスト取得
-        const text = "";
-        // ブラウザから model_id 取得
-        const model_id = "";
-        // voice_id 取得
-        const voice_id = "";
-        // 音声フォーマット取得
-        const format = "";
+        // TODO:ブラウザからテキスト取得
+        const text = document.getElementById("textInput").value.trim();
+        // TODO: ブラウザから model_id 取得
+        const model_id = document.getElementById("modelSelect").value;
+        // TODO: voice_id 取得
+        const voice_id = document.getElementById("voiceSelect").value;
+        // TODO: 音声フォーマット取得
+        const format = document.getElementById("formatSelect").value;
 
         if (!text) {
             alert("テキストを入力してください");
