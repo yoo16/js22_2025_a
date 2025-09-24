@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // - Body: JSON形式で"text", "model_id", "voice_settings", "output_format"を含む
 
             // TODO: エンドポイントURLを設定
-            const endpoint = `https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/stream`;
+            const endpoint = `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}/stream`;
 
             const response = await fetch(endpoint, {
                 method: "POST",
