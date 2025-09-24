@@ -68,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const formData = new FormData();
         // TODO: file に音声ファイルを設定
         formData.append("file", audioFile);
-        // TODO: model_id を設定
         formData.append("model_id", model_id);
         // TODO: language に selectedLang を設定
         formData.append("language", selectedLang);
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showLoading(true);
 
             // TODO: APIエンドポイント: https://api.elevenlabs.io/v1/speech-to-text
-            const endpoint = "";
+            const endpoint = "https://api.elevenlabs.io/v1/speech-to-text";
             // APIリクエスト
             const response = await fetch(endpoint, {
                 method: "POST",
@@ -93,8 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error("APIエラー: " + errorText);
             }
 
+            console.log(response);
+
             // TODO: データ受信
+            const data = await response.json();
             // TODO: result に文字起こし結果を表示
+            result.textContent = data.text;
         } catch (error) {
             console.error(error);
             result.textContent = "エラー: " + error.message;
