@@ -67,8 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // フォームデータ作成
         const formData = new FormData();
         // TODO: file に音声ファイルを設定
+        formData.append("file", audioFile);
         // TODO: model_id を設定
+        formData.append("model_id", model_id);
         // TODO: language に selectedLang を設定
+        formData.append("language", selectedLang);
 
         try {
             // モーダル表示
